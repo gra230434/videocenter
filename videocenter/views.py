@@ -1,32 +1,34 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.template import loader
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
+from django.contrib.auth import logout
 from django.contrib.auth.models import User
 
 
 # Create your views here.
 def index(request):
     if 'message' in request.GET:
-        message = request.GET[message]
+        message = request.GET['message']
     else:
         message = "Hello, world. You're at the video index."
     context = {'mes': message}
     return render(request, 'index/index.html', context)
 
+
 def login_page(request):
     if 'message' in request.GET:
-        message = request.GET[message]
+        message = request.GET['message']
     else:
         message = "Welcome login"
     context = {'message': message}
     return render(request, 'index/login.html', context)
 
-def register_page():
+
+def register_page(request):
     if 'message' in request.GET:
-        message = request.GET[message]
+        message = request.GET['message']
     else:
         message = "Welcome login"
     context = {'message': message}
@@ -43,9 +45,11 @@ def login_action(request):
     else:
         HttpResponseRedirect('/login/?message=error')
 
+
 def logout_action(request):
     logout(request)
     HttpResponseRedirect('/?message=success')
+
 
 def register_action(request):
     if request.POST:
@@ -54,7 +58,7 @@ def register_action(request):
         repassword = request.POST.get('repassword', None)
         email = request.POST.get('email', None)
     if username and password and repassword and email:
-        if password not is repassword:
+        if password is not repassword:
             return HttpResponseRedirect('/register/?message=error')
         user = User.objects.create_user(username=username,
                                         email=password,
