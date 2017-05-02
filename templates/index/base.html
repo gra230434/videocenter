@@ -10,7 +10,11 @@
       <title>絕對低調 {% block title %}{% endblock %}</title>
       <link rel="stylesheet" type="text/css" href="{% static 'index/style.css' %}" />
     </head>
-    <body>
+    <body id="loginpagebody">
+      <div class="intoweb" id="intoweb">
+        <div class="intobox" align = "left">
         {% block content %}{% endblock %}
+        </div><!-- .intobox -->
+      </div><!-- .intoweb -->
     </body>
 </html>
