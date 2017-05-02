@@ -36,14 +36,17 @@ def register_page(request):
 
 
 def login_action(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        HttpResponseRedirect('/account/')
+    if request.POST:
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            HttpResponseRedirect('/account/')
+        else:
+            HttpResponseRedirect('/login/?message=error')
     else:
-        HttpResponseRedirect('/login/?message=error')
+        HttpResponseRedirect('/?message=success')
 
 
 def logout_action(request):

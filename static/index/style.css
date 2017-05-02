@@ -1,0 +1,350 @@
+/*
+ * movie web css
+ * author: Kevin Wei
+*/
+
+/**
+ * Table of Contents
+ *
+ * 1.0 - Normalize
+ * 2.0 - Sidepage
+ * 3.0 - loginpage
+ * 4.0 - Masterbar
+ */
+
+/* 導入google字體 */
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+/**
+ * 1.0 - Normalize
+ *
+ * Normalizing styles have been helped along thanks to the fine work of
+ * Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+ */
+
+html {
+	font-family: 'Noto Sans TC', sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	background-color: white;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+a {
+	background-color: transparent;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+img {
+	border: 0;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+figure {
+	margin: 0;
+}
+
+hr {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	color: inherit;
+	font: inherit;
+	margin: 0;
+}
+
+select {
+	text-transform: none;
+}
+
+button {
+	overflow: visible;
+}
+
+button,
+input,
+select,
+textarea {
+	max-width: 100%;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button;
+	cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+	cursor: default;
+	opacity: .5;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+
+textarea {
+	overflow: auto;
+	vertical-align: top;
+}
+
+optgroup {
+	font-weight: bold;
+}
+
+.clear {
+	clear: both;
+}
+
+/**
+ * 2.0 sitepage
+ *
+ */
+.sitepage {
+	width: 80%;
+	margin: 40px auto;
+}
+
+#loginpagebody {
+	width: 100%;
+	height: 100vh;
+	background-image: url("images/indexlogin.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	position: relative;
+}
+
+#moviebody {
+	background-color: #989898;
+}
+
+/**
+ * 3.0 - loginpage
+ *
+ */
+.intoweb {
+	width: 400px;
+	height: 330px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
+}
+.intobox {
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.intobox p {
+	margin: 15px 0 0;
+}
+
+.intoboxtitle {
+	background-color: #457EE8;
+	color:#FFFFFF;
+	font-size: 25px;
+	padding: 15px 10px;
+	text-align: center;
+}
+
+.loginbox input[type="text"], .loginbox input[type="password"],
+.registrationbox input {
+	padding: 8px;
+	display: block;
+	border: none;
+	border-bottom: 1px solid #3B3B3B;
+	width: calc( 100% - 16px );
+	background-color: rgba(255,255,255,0);
+}
+
+.loginbox input:focus, .registrationbox input:focus {
+	padding-bottom: 7px;
+	outline-style: none;
+	border-bottom: 2px solid #457EE8;
+}
+
+.addusersubmit, .intowebsubmit {
+	margin: 20px 0;
+	height: 34px;
+	width: 100%;
+	border-radius: 5px;
+	background-color: #457EE8;
+	border-top: 3px solid #B3D0FF;
+	border-bottom: 3px solid #B3D0FF;
+	float: left;
+	position: relative;
+}
+
+.intobox button {
+	width: calc( 50% - 0.5px );
+	height: 40px;
+	background-color: #B3D0FF;
+	border: 0;
+	border-radius: 3px;
+	position: absolute;
+	top: -3px;
+	transition: all .2s;
+}
+
+.intobox button:hover {
+	color: white;
+	background-color: #2149A0;
+}
+
+/**
+ * 4.0 - Sidebar
+ *
+ */
+.movieheader {
+	height: auto;
+}
+
+.movieheader h1 {
+	float: left;
+	font-size: 38px;
+}
+
+.movieheader .toright {
+	width: 500px;
+	float: right;
+}
+
+.movieheader .theptad {
+	width: 100%;
+}
+
+.movieheader .theptad p {
+	float: right;
+	font-size: 18px;
+	margin: 5px 0;
+}
+
+#navmenu {
+	margin-top: 10px;
+}
+
+#navmenu ul {
+	list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navmenu li {
+  float: left;
+}
+
+#navmenu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#navmenu li a:hover:not(.active) {
+  background-color: #111;
+}
+
+#navmenu .active {
+  background-color: #4CAF50;
+}
+
+.sidebar {
+	width: 1420px;
+}
+
+.masterbar {
+ 	width: 100%;
+}
+
+.videopart {
+	width: 1280px;
+	margin: 0 auto;
+}
+
+#videolist button {
+	padding: 10px 14px;
+	background-color: white;
+	margin: 5px;
+	border: 2px solid white;
+}
+
+#videolist button:hover {
+	background-color: #1a75ff;
+	color: #ffffff;
+}
+
+.animationlist {
+	width: 1420px;
+}
+
+.videobox {
+	height: 400px;
+	width: 254px;
+	margin: 15px;
+	float: left;
+	cursor: pointer;
+}
+
+.videobox h3 {
+	background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 14px;
+	margin: 0;
+}
