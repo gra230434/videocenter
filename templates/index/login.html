@@ -3,13 +3,31 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<form action="/post/video/login_action" method="post">
+<div id="intoboxtitle" class="intoboxtitle"><b>Login</b></div>
+<div id="loginbox" class="loginbox" style = "margin:30px">
+  <form method = "post" id="login_form" action="{% url 'SingIn' %}">
     {% csrf_token %}
-    <label for="username">用戶名稱:</label>
-    <input type="text" name="username" value="" id="username"> <br />
-    <label for="password">用戶密碼:</label>
-    <input type="password" name="password" value="" id="password"> <br />
-    <input type="submit" value="登入" />
-</form>
-{{ message }}
+    <p><label for="username">{{ form.username.label_tag }}</label></p>
+    {{ form.username }}
+    <p>{{ form.password.label_tag }}</p>
+    {{ form.password }}
+  </form>
+  <div class="intowebsubmit">
+    <button type="submit" form="login_form" value="Submit" style="left:0;">登入</button>
+    <button type="button" style="right:0;" id="registrationon">註冊</button>
+  </div>
+  <div style = "font-size:11px; color:#cc0000; margin-top:10px">
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    {% if next %}
+        {% if user.is_authenticated %}
+        <p>Your account doesn't have access to this page. To proceed,
+        please login with an account that has access.</p>
+        {% else %}
+        <p>Please login to see this page.</p>
+        {% endif %}
+    {% endif %}
+  </div>
+</div><!-- .loginbox -->
 {% endblock %}

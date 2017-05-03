@@ -18,24 +18,6 @@ def index(request):
 
 
 def login_page(request):
-    if 'message' in request.GET:
-        message = request.GET['message']
-    else:
-        message = "Welcome login"
-    context = {'message': message}
-    return render(request, 'index/login.html', context)
-
-
-def register_page(request):
-    if 'message' in request.GET:
-        message = request.GET['message']
-    else:
-        message = "Welcome login"
-    context = {'message': message}
-    return render(request, 'index/register.html', context)
-
-
-def login_action(request):
     if request.POST:
         username = request.POST['username']
         password = request.POST['password']
@@ -45,8 +27,21 @@ def login_action(request):
             HttpResponseRedirect('/account/')
         else:
             HttpResponseRedirect('/login/?message=error')
+    if 'message' in request.GET:
+        message = request.GET['message']
     else:
-        HttpResponseRedirect('/?message=success')
+        message = "Welcome Video Center"
+    context = {'message': message}
+    return render(request, 'index/login.html', context)
+
+
+def register_page(request):
+    if 'message' in request.GET:
+        message = request.GET['message']
+    else:
+        message = "Welcome register"
+    context = {'message': message}
+    return render(request, 'index/register.html', context)
 
 
 def logout_action(request):
@@ -60,11 +55,12 @@ def register_action(request):
         password = request.POST.get('password', None)
         repassword = request.POST.get('repassword', None)
         email = request.POST.get('email', None)
-    if username and password and repassword and email:
-        if password is not repassword:
-            return HttpResponseRedirect('/register/?message=error')
-        user = User.objects.create_user(username=username,
-                                        email=password,
-                                        password=email)
+        if username and password and repassword and email:
+            if password is not repassword:
+                return HttpResponseRedirect('/SingUp/?message=error')
+            user = User.objects.create_user(username=username,
+                                            email=password,
+                                            password=email)
         user.is_active = False
         user.save()
+        return HttpResponseRedirect
