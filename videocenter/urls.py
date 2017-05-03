@@ -8,9 +8,9 @@ urlpatterns = [
     url(
         r'^SingIn/$',
         auth_views.LoginView.as_view(template_name='index/login.html'),
-        name='login'
+        name='SingIn'
         ),
-    url(r'^SingOut/$', views.logout_action, name='logout'),
+    url(r'^SingOut/$', views.logout_action, name='SingOut'),
     url(r'^SingUp/$', views.register_page, name='SingUp'),
     # Restful API
     url(r'^post/register/', views.register_action, name='register')
