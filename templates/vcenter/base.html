@@ -2,19 +2,31 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-      <title>絕對低調 {% block title %}{% endblock %}</title>
-      <link rel="stylesheet" type="text/css" href="{% static 'index/style.css' %}" />
-    </head>
-    <body id="loginpagebody">
-      <div class="intoweb" id="intoweb">
-        <div class="intobox" align = "left">
-        {% block content %}{% endblock %}
-        </div><!-- .intobox -->
-      </div><!-- .intoweb -->
-    </body>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <title>絕對低調 | {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="" />
+  </head>
+  <body id="moviebody">
+    <div class="sitepage">
+      <header class="movieheader">
+        <h1>私人動漫天地</h1>
+        <div class="toright">
+          <div class="theptad">
+            <p>Welcome {{ username }}</p>
+            <div class="clear"></div>
+          </div>
+          <div id="navmenu">
+            <ul class="drop-down-menu">
+              <li><a class="active" href="{% url 'videocenter_index' %}">影片</a></li>
+              <li><a href="{% url 'SingOut' %}">登出</a></li>
+            </ul>
+          </div><!-- #navmenu -->
+        </div>
+        <div class="clear"></div>
+      </header>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
 </html>

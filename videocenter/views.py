@@ -1,11 +1,14 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
 def index(request):
-    if 'message' in request.GET:
-        message = request.GET['message']
+    if request.user.authenticated():
+        if request.user.get_full_name() is not None:
+            context = {'username': request.user.get_full_name()}
+        else:
+            context = {'username': request.user.get_username()}
+        return render(request, 'vcenter/index.html', context)
     else:
-        message = "Hello, world. You're at the video index."
-    context = {'mes': message}
-    return render(request, 'index/index.html', context)
+        return HttpResponseRedirect('/SingIn/')
