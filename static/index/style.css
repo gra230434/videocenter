@@ -12,8 +12,9 @@
  * 4.0 - Masterbar
  */
 
-/* 導入google字體 */
-@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+/* google font notosanstc */
+/* @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);*/
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 
 /**
  * 1.0 - Normalize
@@ -243,6 +244,22 @@ optgroup {
 .intobox button:hover {
 	color: white;
 	background-color: #2149A0;
+}
+
+.welcomebox button { 
+        width: calc( 100% - 1px );
+        height: 40px;
+        background-color: #B3D0FF;
+        border: 0;
+        border-radius: 3px;
+        position: static;
+        top: -3px;
+        transition: all .2s;
+}
+
+.welcomebox p {
+	margin-bottom: 15px;
+        margin-top: 25px;
 }
 
 /**

@@ -4,6 +4,14 @@
 
 {% block content %}
 <div id="intoboxtitle" class="intoboxtitle"><b>Video Center</b></div>
-<p>{{ mes }}</p>
-<p>This is index.html</p>
+<div id="welcomebox" class="welcomebox" style = "margin:30px">
+  <p>You can Sing In</p>
+  <a href="{% url 'SingIn'%}">
+    <button type="button">Sing In</button>
+  </a>
+  <p>If you don't have account</p>
+  <a href="{% url 'SingUp'%}">
+    <button type="button">Sing Up</button>
+  </a>
+</div><!-- welcomebox -->
 {% endblock %}
