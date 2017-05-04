@@ -3,7 +3,16 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Django settings
 settings.py
+
+# vidoe, audio
+*.mpeg
+*.wav
+*.mp3
+*.mp4
+*.webm
+*.ogg
 
 # C extensions
 *.so
