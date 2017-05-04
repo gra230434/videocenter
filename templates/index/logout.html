@@ -5,6 +5,8 @@
 {% block content %}
 <div id="intoboxtitle" class="intoboxtitle"><b>Logout</b></div>
 <div id="loginbox" class="loginbox" style = "margin:30px">
+  <p>You art now sighed out.</p>
+  <p>You can <a href="{% url %}">return to home page</a> or <a href="{% url 'login'%}">sing in</a> again</p>
   <div style = "font-size:11px; color:#cc0000; margin-top:10px">
     {{ site }}
     {{ site_name }}
