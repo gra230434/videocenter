@@ -12,7 +12,7 @@ urlpatterns = [
         ),
     url(
         r'^SingOut/$',
-        auth_views.LogoutView.as_view(),
+        auth_views.LogoutView.as_view(template_name='index/logout.html'),
         name='SingOut'),
     url(r'^SingUp/$', views.register_page, name='SingUp'),
     # Restful API
