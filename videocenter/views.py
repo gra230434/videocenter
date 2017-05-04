@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 def index(request):
-    if request.user.authenticated():
+    if request.user.is_authenticated():
         if request.user.get_full_name() is not None:
             context = {'username': request.user.get_full_name()}
         else:
