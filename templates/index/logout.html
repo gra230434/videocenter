@@ -1,0 +1,14 @@
+{% extends "index/base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div id="intoboxtitle" class="intoboxtitle"><b>Login</b></div>
+<div id="loginbox" class="loginbox" style = "margin:30px">
+  <div style = "font-size:11px; color:#cc0000; margin-top:10px">
+    {{ site }}
+    {{ site_name }}
+    {{ next }}
+  </div>
+</div><!-- .loginbox -->
+{% endblock %}
