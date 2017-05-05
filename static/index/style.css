@@ -58,9 +58,13 @@ video {
 }
 
 a {
-	color: #6b6b6b;
+	color: #939393;
 	background-color: transparent;
 	text-decoration-line: inherit;
+}
+
+a:hover {
+	color: #6b6b6b;
 }
 
 abbr[title] {
@@ -248,7 +252,7 @@ optgroup {
 	background-color: #2149A0;
 }
 
-.welcomebox button { 
+.welcomebox button {
         width: calc( 100% - 1px );
         position: static;
         color: black;
