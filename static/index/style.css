@@ -58,7 +58,9 @@ video {
 }
 
 a {
+	color: #6b6b6b;
 	background-color: transparent;
+	text-decoration-line: inherit;
 }
 
 abbr[title] {
