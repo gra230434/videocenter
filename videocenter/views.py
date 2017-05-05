@@ -6,8 +6,8 @@ from django.http import HttpResponseRedirect
 def index(request):
     if request.user.is_authenticated():
         context = {'username': 'username'}
-        if request.user.get_full_name() is not None:
-            context['username'] = request.user.get_full_name()
+        if request.user.get_short_name() is not None:
+            context['username'] = request.user.get_short_name()
         else:
             context['username'] = request.user.get_username()
         context['account'] = request.user.get_username()
