@@ -16,15 +16,11 @@
     <button type="submit" form="login_form" value="Submit" style="left:0;">登入</button>
     <button type="button" style="right:0;" id="registrationon">註冊</button>
   </div>
-  <div style = "font-size:11px; color:#cc0000; margin-top:10px">
-    {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
-  </div>
+  <div class="clear"></div>
 </div><!-- .loginbox -->
 {% if form.errors %}
-<div style = "color:#000000; margin-top:10px">
-      <p>Your username and password didn't match. Please try again.</p>
+<div class="errormessage">
+  <p>Your username and password didn't match. Please try again.</p>
 </div>
 {% endif %}
 {% endblock %}

@@ -225,7 +225,6 @@ optgroup {
 }
 
 .addusersubmit, .intowebsubmit {
-	margin: 20px 0;
 	height: 34px;
 	width: 100%;
 	border-radius: 5px;
@@ -234,6 +233,14 @@ optgroup {
 	border-bottom: 3px solid #B3D0FF;
 	float: left;
 	position: relative;
+}
+
+.addusersubmit {
+	margin: 20px 0;
+}
+
+.intowebsubmit {
+	margin: 14px 0 0;
 }
 
 .intobox button {
@@ -253,15 +260,26 @@ optgroup {
 }
 
 .welcomebox button {
-        width: calc( 100% - 1px );
-        position: static;
-        color: black;
+  width: calc( 100% - 1px );
+  position: static;
+  color: black;
 }
 
 .welcomebox p {
 	margin-bottom: 15px;
-        margin-top: 25px;
+  margin-top: 25px;
 }
+
+.errormessage {
+	background-color: #ee1111e6;
+	padding: 5px 20px;
+}
+
+.errormessage p {
+	color: #fff;
+	margin: 10px 0;
+}
+
 
 /**
  * 4.0 - Sidebar
