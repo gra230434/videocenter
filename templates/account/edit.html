@@ -15,13 +15,15 @@
 </div>
 {% endif %}
 <div class="username">
+  <p>Hello! {{ username }}</p>
+  <p>In here, you can edit your name.</p>
   <form method="post">
-  <h3>User name</h3>
-  <input type="text" name="firstname" value="{{ username }}">
-  <h3>First name</h3>
-  <input type="text" name="firstname" value="{{ firstname }}">
-  <h3>Last name</h3>
-  <input type="text" name="firstname" value="{{ lastname }}">
-  <input type="submit" value="Submit">
+    {% csrf_token %}
+    <h3>First name</h3>
+    <input type="text" name="first_name" value="{{ firstname }}">
+    <h3>Last name</h3>
+    <input type="text" name="last_name" value="{{ lastname }}">
+    <input type="submit" value="Submit">
+  </form>
 </div>
 {% endblock %}

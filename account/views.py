@@ -10,10 +10,7 @@ def index(request):
         firstname = request.user.get_short_name()
         fullname = request.user.get_full_name()
         context['firstname'] = firstname
-        if firstname is '':
-            context['lastname'] = fullname
-        else:
-            context['lastname'] = fullname.repalce(firstname, "")
+        context['lastname'] = fullname
         return render(request, 'account/index.html', context)
     else:
         return HttpResponseRedirect('/SingIn/')
@@ -22,22 +19,25 @@ def index(request):
 def edit(request):
     if request.user.is_authenticated():
         context = {}
+        context['username'] = request.user.get_username()
         if request.POST:
             is_change = False
-            if request.POST['first_name']:
+            if request.POST['first_name'] is not '':
                 request.user.first_name = request.POST['first_name']
-            if request.POST['last_name']:
+                is_change = True
+            if request.POST['last_name'] is not '':
                 request.user.last_name = request.POST['last_name']
+                is_change = True
             if is_change:
                 request.user.save()
-                return HttpResponseRedirect('/acount/')
+                return HttpResponseRedirect('/account/')
             context['message'] = "You didn't change anything."
             return render(request, 'account/edit.html', context)
         else:
             firstname = request.user.get_short_name()
             fullname = request.user.get_full_name()
             context['firstname'] = firstname
-            context['lastname'] = fullname.repalce(firstname, "")
+            context['lastname'] = fullname
             return render(request, 'account/edit.html', context)
     else:
         HttpResponseRedirect('/SingIn/')
