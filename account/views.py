@@ -12,8 +12,9 @@ def index(request):
         firstname = request.user.get_short_name()
         fullname = request.user.get_full_name()
         context['firstname'] = firstname
-        if not re.search('(?<=\s).*$', fullname):
-            context['lastname'] = re.search('(?<=\s).*$', fullname)
+        regexlastname = re.search('(?<=\s).*$', fullname)
+        if regexlastname:
+            context['lastname'] = regexlastname.group(0)
         else:
             context['lastname'] = ''
         return render(request, 'account/index.html', context)
@@ -42,8 +43,9 @@ def edit(request):
             firstname = request.user.get_short_name()
             fullname = request.user.get_full_name()
             context['firstname'] = firstname
-            if not re.search('(?<=\s).*$', fullname):
-                context['lastname'] = re.search('(?<=\s).*$', fullname)
+            regexlastname = re.search('(?<=\s).*$', fullname)
+            if regexlastname:
+                context['lastname'] = regexlastname.group(0)
             else:
                 context['lastname'] = ''
             return render(request, 'account/edit.html', context)
