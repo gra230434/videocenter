@@ -14,13 +14,12 @@
         <h1>私人動漫天地</h1>
         <div class="toright">
           <div class="theptad">
-            <p>Welcome {{ username }}</p>
+            <p>Welcome</p>
             <div class="clear"></div>
           </div>
           <div id="navmenu">
             <ul class="drop-down-menu">
-              <li><a class="active" href="{% url 'vcenter_index' %}">影片</a></li>
-              <li><a href="{% url 'SingOut' %}">登出</a></li>
+              {% block indexli %}{% endblock %}
             </ul>
           </div><!-- #navmenu -->
         </div>
