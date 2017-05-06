@@ -10,7 +10,10 @@ def index(request):
         firstname = request.user.get_short_name()
         fullname = request.user.get_full_name()
         context['firstname'] = firstname
-        context['lastname'] = fullname.repalce(firstname, "")
+        if firstname is '':
+            context['lastname'] = fullname
+        else:
+            context['lastname'] = fullname.repalce(firstname, "")
         return render(request, 'account/index.html', context)
     else:
         return HttpResponseRedirect('/SingIn/')
