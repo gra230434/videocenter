@@ -1,3 +1,5 @@
+import re
+
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
@@ -10,7 +12,10 @@ def index(request):
         firstname = request.user.get_short_name()
         fullname = request.user.get_full_name()
         context['firstname'] = firstname
-        context['lastname'] = fullname
+        if not re.search('(?<=\s).*$', fullname):
+            context['lastname'] = re.search('(?<=\s).*$', fullname)
+        else:
+            context['lastname'] = ''
         return render(request, 'account/index.html', context)
     else:
         return HttpResponseRedirect('/SingIn/')
@@ -37,7 +42,10 @@ def edit(request):
             firstname = request.user.get_short_name()
             fullname = request.user.get_full_name()
             context['firstname'] = firstname
-            context['lastname'] = fullname
+            if not re.search('(?<=\s).*$', fullname):
+                context['lastname'] = re.search('(?<=\s).*$', fullname)
+            else:
+                context['lastname'] = ''
             return render(request, 'account/edit.html', context)
     else:
         HttpResponseRedirect('/SingIn/')
