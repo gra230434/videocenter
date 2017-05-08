@@ -2,11 +2,11 @@
 
 {% block title %}Sing Up{% endblock %}
 
-{% block content %}
+{% block intoclass %}intoweb registerweb{% endblock %}
 
-{{ message }}
+{% block content %}
 <div id="intoboxtitle" class="intoboxtitle"><b>Sing Up</b></div>
-<div id="loginbox" class="loginbox" style = "margin:30px">
+<div id="registerbox" class="registerbox" style = "margin:30px">
   <form method="post" id="singup_form" action="{% url 'SingUp' %}">
     {% csrf_token %}
     <p>{{ form.username.label_tag }}</p>
@@ -23,7 +23,10 @@
     {{ form.last_name }}
   </form>
   <div class="intowebsubmit">
-    <button type="submit" form="singup_form" value="Submit">註冊</button>
+    <button type="submit" form="singup_form" value="Submit" style="left:0;">註冊</button>
+    <a href="{% url 'SingIn'%}">
+      <button type="button" style="right:0;">註冊</button>
+    </a>
   </div>
   <div class="clear"></div>
 </div><!-- .loginbox -->

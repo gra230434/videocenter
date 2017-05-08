@@ -11,7 +11,7 @@
       <link rel="stylesheet" type="text/css" href="{% static 'index/style.css' %}" />
     </head>
     <body id="loginpagebody">
-      <div class="intoweb" id="intoweb">
+      <div class="{% block intoclass %}{% endblock %}" id="intoweb">
         <div class="intobox" align="left">
         {% block content %}{% endblock %}
         </div><!-- .intobox -->

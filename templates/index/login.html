@@ -2,6 +2,8 @@
 
 {% block title %}Sing In{% endblock %}
 
+{% block intoclass %}intoweb{% endblock %}
+
 {% block content %}
 <div id="intoboxtitle" class="intoboxtitle"><b>Sing In</b></div>
 <div id="loginbox" class="loginbox" style = "margin:30px">
@@ -14,7 +16,9 @@
   </form>
   <div class="intowebsubmit">
     <button type="submit" form="login_form" value="Submit" style="left:0;">登入</button>
-    <button type="button" style="right:0;" id="registrationon">註冊</button>
+    <a href="{% url 'SingUp'%}">
+      <button type="button" style="right:0;" id="registrationon">註冊</button>
+    </a>
   </div>
   <div class="clear"></div>
 </div><!-- .loginbox -->
