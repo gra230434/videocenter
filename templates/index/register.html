@@ -32,7 +32,9 @@
 </div><!-- .loginbox -->
 {% if form.errors %}
 <div class="errormessage">
-  <p>{{ form.errors }}</p>
+  {% if form.errors %}
+    {{ form.errors.password2 }}
+  {% endif %}
 </div>
 {% endif %}
 {% endblock %}
