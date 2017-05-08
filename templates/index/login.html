@@ -1,5 +1,7 @@
 {% extends "index/base.html" %}
 
+{% block head_js %}<script src='https://www.google.com/recaptcha/api.js'></script>{% endblock %}
+
 {% block title %}Sing In{% endblock %}
 
 {% block intoclass %}intoweb{% endblock %}
@@ -13,6 +15,7 @@
     {{ form.username }}
     <p>{{ form.password.label_tag }}</p>
     {{ form.password }}
+    <div class="g-recaptcha" data-sitekey="6LdtgCAUAAAAANinqqbwXrmvk5JvvmzyvTRrDL_p"></div>
   </form>
   <div class="intowebsubmit">
     <button type="submit" form="login_form" value="Submit" style="left:0;">登入</button>
