@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from function.accountget import getlastname
+from .function.accountget import getlastname
 
 
 # Create your views here.
