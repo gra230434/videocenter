@@ -40,4 +40,9 @@
   {% endif %}
 </div>
 {% endif %}
+{% if error %}
+<div class="errormessage">
+  {{ error }}
+</div>
+{% endif %}
 {% endblock %}
