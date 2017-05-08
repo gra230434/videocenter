@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from django.contrib.auth.models import User
 
 from . import forms
 
@@ -20,6 +19,8 @@ def register_page(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/SingIn/')
+        else:
+            return render(request, 'index/register.html', {'form': form})
     else:
         form = forms.SignUpForm()
         return render(request, 'index/register.html', {'form': form})
