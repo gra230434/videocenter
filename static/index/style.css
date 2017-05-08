@@ -214,8 +214,7 @@ optgroup {
 }
 
 .loginbox input[type="text"], .loginbox input[type="password"],
-.loginbox input[type="email"],
-.registrationbox input {
+.registerbox input[type="text"], .registerbox input[type="password"], .registerbox input[type="email"] {
 	padding: 8px;
 	display: block;
 	border: none;
@@ -224,7 +223,7 @@ optgroup {
 	background-color: rgba(255,255,255,0);
 }
 
-.loginbox input:focus, .registrationbox input:focus {
+.loginbox input:focus, .registerbox input:focus {
 	padding-bottom: 7px;
 	outline-style: none;
 	border-bottom: 2px solid #457EE8;
