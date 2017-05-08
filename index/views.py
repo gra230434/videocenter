@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 
+from . import forms
 
-# Create your views here.
+
 def index(request):
     if 'message' in request.GET:
         message = request.GET['message']
@@ -14,26 +15,11 @@ def index(request):
 
 
 def register_page(request):
-    if 'message' in request.GET:
-        message = request.GET['message']
+    if request.method == 'POST':
+        form = forms.SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/SingIn/')
     else:
-        message = "Welcome register"
-    context = {'message': message}
-    return render(request, 'index/register.html', context)
-
-
-def register_action(request):
-    if request.POST:
-        username = request.POST.get('username', None)
-        password = request.POST.get('password', None)
-        repassword = request.POST.get('repassword', None)
-        email = request.POST.get('email', None)
-        if username and password and repassword and email:
-            if password is not repassword:
-                return HttpResponseRedirect('/SingUp/?message=error')
-            user = User.objects.create_user(username=username,
-                                            email=password,
-                                            password=email)
-        user.is_active = False
-        user.save()
-        return HttpResponseRedirect
+        form = forms.SignUpForm()
+        return render(request, 'index/register.html', {'form': form})

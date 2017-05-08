@@ -1,13 +1,13 @@
 {% extends "index/base.html" %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Sing In{% endblock %}
 
 {% block content %}
-<div id="intoboxtitle" class="intoboxtitle"><b>Login</b></div>
+<div id="intoboxtitle" class="intoboxtitle"><b>Sing In</b></div>
 <div id="loginbox" class="loginbox" style = "margin:30px">
   <form method = "post" id="login_form" action="{% url 'SingIn' %}">
     {% csrf_token %}
-    <p><label for="username">{{ form.username.label_tag }}</label></p>
+    <p>{{ form.username.label_tag }}</p>
     {{ form.username }}
     <p>{{ form.password.label_tag }}</p>
     {{ form.password }}

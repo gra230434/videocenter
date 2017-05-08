@@ -1,19 +1,35 @@
 {% extends "index/base.html" %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Sing Up{% endblock %}
 
 {% block content %}
-<form action="/post/video/login_action" method="post">
-    {% csrf_token %}
-    <label for="username">用戶名稱:</label>
-    <input type="text" name="username" value="" id="username"> <br />
-    <label for="password">用戶密碼:</label>
-    <input type="password" name="password" value="" id="password"> <br />
-    <label for="password">確認密碼:</label>
-    <input type="password" name="repassword" value="" id="repassword"> <br />
-    <label for="password">用戶信箱:</label>
-    <input type="email" name="email" value="" id="email"> <br />
-    <input type="submit" value="註冊" />
-</form>
+
 {{ message }}
+<div id="intoboxtitle" class="intoboxtitle"><b>Sing Up</b></div>
+<div id="loginbox" class="loginbox" style = "margin:30px">
+  <form method="post" id="singup_form" action="{% url 'SingUp' %}">
+    {% csrf_token %}
+    <p>{{ form.username.label_tag }}</p>
+    {{ form.username }}
+    <p>{{ form.password1.label_tag }}</p>
+    {{ form.password1 }}
+    <p>{{ form.password2.label_tag }}</p>
+    {{ form.password2 }}
+    <p>{{ form.email.label_tag }}</p>
+    {{ form.email }}
+    <p>{{ form.first_name.label_tag }}</p>
+    {{ form.first_name }}
+    <p>{{ form.last_name.label_tag }}</p>
+    {{ form.last_name }}
+  </form>
+  <div class="intowebsubmit">
+    <button type="submit" form="singup_form" value="Submit">註冊</button>
+  </div>
+  <div class="clear"></div>
+</div><!-- .loginbox -->
+{% if form.errors %}
+<div class="errormessage">
+  <p>{{ form.errors }}</p>
+</div>
+{% endif %}
 {% endblock %}
