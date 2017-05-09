@@ -15,10 +15,10 @@ Install a personal video web with Django
 ver 1.0  
 user singin / user singout / user singup  
 
-ver 1.1
+ver 1.1  
 user singup and check by Email
 
-ver 1.3  
+ver 1.3  
 vcenter / video classification / video tag / video Introduction  
 
 ver 1.5  
