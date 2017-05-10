@@ -11,18 +11,20 @@
 <div id="registerbox" class="registerbox" style = "margin:30px">
   <form method="post" id="singup_form" action="{% url 'SingUp' %}">
     {% csrf_token %}
-    <p>{{ form.username.label_tag }}</p>
-    {{ form.username }}
-    <p>{{ form.password1.label_tag }}</p>
-    {{ form.password1 }}
-    <p>{{ form.password2.label_tag }}</p>
-    {{ form.password2 }}
-    <p>{{ form.email.label_tag }}</p>
-    {{ form.email }}
-    <p>{{ form.first_name.label_tag }}</p>
-    {{ form.first_name }}
-    <p>{{ form.last_name.label_tag }}</p>
-    {{ form.last_name }}
+    <div class="registerinput">
+      <p>{{ form.username.label_tag }}</p>
+      {{ form.username }}
+      <p>{{ form.password1.label_tag }}</p>
+      {{ form.password1 }}
+      <p>{{ form.password2.label_tag }}</p>
+      {{ form.password2 }}
+      <p>{{ form.email.label_tag }}</p>
+      {{ form.email }}
+      <p>{{ form.first_name.label_tag }}</p>
+      {{ form.first_name }}
+      <p>{{ form.last_name.label_tag }}</p>
+      {{ form.last_name }}
+    </div>
     <div class="g-recaptcha" data-sitekey="6LdtgCAUAAAAANinqqbwXrmvk5JvvmzyvTRrDL_p"></div>
   </form>
   <div class="intowebsubmit">

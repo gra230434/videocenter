@@ -34,6 +34,19 @@ body {
 	background-color: white;
 }
 
+body::-webkit-scrollbar {
+	width: 5px;
+}
+ 
+body::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+	background-color: darkgrey;
+	outline: 1px solid slategrey;
+}
+
 article,
 aside,
 details,
@@ -192,6 +205,10 @@ optgroup {
 	margin: auto;
 }
 
+.singinweb {
+        height: 410px;
+}
+
 .registerweb {
 	height: 658px;
 }
@@ -229,6 +246,11 @@ optgroup {
 	border-bottom: 2px solid #457EE8;
 }
 
+.registerinput {
+	height: 390px;
+        overflow-y: scroll;
+}
+
 .addusersubmit, .intowebsubmit {
 	height: 34px;
 	width: 100%;
@@ -245,7 +267,7 @@ optgroup {
 }
 
 .intowebsubmit {
-	margin: 14px 0 0;
+	margin: 11px 0 0;
 }
 
 .intobox button {
@@ -262,6 +284,14 @@ optgroup {
 .intobox button:hover {
 	color: white;
 	background-color: #2149A0;
+}
+
+.g-recaptcha {
+	margin-top: 10px;
+}
+
+.g-recaptcha div {
+	margin: 0 auto;
 }
 
 .welcomebox button {
