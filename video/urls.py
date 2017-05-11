@@ -19,6 +19,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^', include('index.urls')),
+    # social-auth-app-django
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
     url(r'^vcenter/', include('videocenter.urls')),
     url(r'^account/', include('account.urls')),
     url(r'^admin/', admin.site.urls),
