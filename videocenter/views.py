@@ -15,3 +15,7 @@ def index(request):
     context['text'] = "Try and Error"
     return render(request, 'vcenter/index.html', context)
 
+
+@login_required
+def animate(request):
+    pass
