@@ -1,6 +1,7 @@
 import os
 
 from django.conf import settings
+from django.views import View
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
@@ -78,7 +79,7 @@ def editanicreate(request):
 
 
 @login_required
-class editanidetail(object):
+class editanidetail(View):
     """docstring for editanidetail."""
     def get(self, request, aniID, is_fail=None):
         if aniID is not None:
