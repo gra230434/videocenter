@@ -1,5 +1,4 @@
 import os
-import settings
 
 from settings import MEDIA_ROOT
 from django.shortcuts import render
@@ -8,7 +7,6 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
-from .models import Animate
 from .models import AnimateDetail
 from .forms import CreateAnimateForm
 from .forms import EditAnimateForm
