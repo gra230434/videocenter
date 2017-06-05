@@ -1,6 +1,6 @@
 import os
 
-from settings import MEDIA_ROOT
+from django.conf.settings import MEDIA_ROOT
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
