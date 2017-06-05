@@ -22,7 +22,7 @@ class AnimateDetail(models.Model):
         ('2', 'Spring'),
         ('3', 'Summer'),
         ('4', 'Autumn'),
-    )
+        )
     animate = models.CharField(max_length=256)
     animateEN = models.CharField(max_length=256)
     sequence = models.CharField(max_length=2)
