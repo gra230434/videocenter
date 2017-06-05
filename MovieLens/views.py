@@ -13,7 +13,8 @@ def MovieLens(request):
     # who u are
     # what movie u want to check
     context = {}
-    random.randint(0, 99)
+    movieID = random.sample(range(1, 131262), 10)
+    context['movie'] = movieID
     return render(request, 'MovieLens/user.html', context)
 
 
