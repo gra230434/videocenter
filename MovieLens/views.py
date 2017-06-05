@@ -40,7 +40,7 @@ def MovieLensUser(request, userID=None):
 
 
 @login_required
-def MovieLensMovie(request, movieID):
+def MovieLensMovie(request, movieID=None):
         if movieID is not None:
             url = "http://140.113.207.198:3000/action"
             urlwithID = "{0}?movieID={1}".format(url, movieID)

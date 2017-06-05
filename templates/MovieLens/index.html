@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-<form method="post" id="userID" action="{% url 'MovieLensUser' %}">
+<form method="post" id="userID" action="{% url 'MovieLens' %}">
   {% csrf_token %}
   <p>Quantity (between 1 and 138493):</p>
   <input type="number" name="quantity" min="1" max="138493">
@@ -20,7 +20,7 @@
 <div class="postuser">
   <button type="submit" form="userID" value="Submit">how about the user</button>
 </div>
-<form method="post" id="movieID" action="{% url 'MovieLensMovie' %}">
+<form method="post" id="movieID" action="{% url 'MovieLens' %}">
   {% csrf_token %}
   <p>Choice a movie you like:</p>
   {% for val in movie %}
