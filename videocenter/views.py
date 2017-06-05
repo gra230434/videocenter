@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import AnimateDetail
 from .forms import CreateAnimateForm
@@ -78,8 +79,7 @@ def editanicreate(request):
         return render(request, 'vcenter/editani.html', {'form': form})
 
 
-@login_required
-class editanidetail(View):
+class editanidetail(LoginRequiredMixin, View):
     """docstring for editanidetail."""
     def get(self, request, aniID, is_fail=None):
         if aniID is not None:
