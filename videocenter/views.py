@@ -1,6 +1,6 @@
 import os
 
-from django.conf.settings import MEDIA_ROOT
+from django.conf import settings
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
@@ -58,10 +58,12 @@ def editanicreate(request):
             nameEN = request.POST['animateEN']
             season = 1
             nameENSE = "{}_SO{}".format(nameEN, str(season).zfill(2))
-            while os.path.isdir(os.path.join(MEDIA_ROOT, 'ani', nameENSE)):
+            while os.path.isdir(os.path.join(settings.MEDIA_ROOT,
+                                             'ani', nameENSE)):
                 season += 1
                 nameENSE = "{}_SO{}".format(nameEN, str(season).zfill(2))
-            if not os.mkdirs(os.path.join(MEDIA_ROOT, nameENSE), '0755'):
+            if not os.mkdirs(os.path.join(settings.MEDIA_ROOT, nameENSE),
+                             '0755'):
                 context = {'error': 'create folder fail',
                            'form': CreateAnimateForm()}
                 return render(request, 'vcenter/editani.html', context)
