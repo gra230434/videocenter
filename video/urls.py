@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     url(r'^vcenter/', include('videocenter.urls')),
     url(r'^account/', include('account.urls')),
+    url(r'^MovieLens/', include('MovieLens.urls')),
     url(r'^admin/', admin.site.urls),
     ]

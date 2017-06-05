@@ -1,0 +1,33 @@
+{% extends "MovieLens/base.html" %}
+
+{% load static %}
+
+{% block title %}Test animation{% endblock %}
+
+{% block indexli %}
+<li><a href="{% url 'vcenter_index' %}">影片</a></li>
+<li><a class="active" href="{% url 'MovieLens' %}">影片推薦</a></li>
+<li><a href="{% url 'account_index' %}">個人設定</a></li>
+<li><a href="{% url 'SingOut' %}">登出</a></li>
+{% endblock %}
+
+{% block content %}
+<form method="post" id="userID" action="{% url 'MovieLensUser' %}">
+  {% csrf_token %}
+  <p>Quantity (between 1 and 138493):</p>
+  <input type="number" name="quantity" min="1" max="138493">
+</form>
+<div class="postuser">
+  <button type="submit" form="userID" value="Submit">how about the user</button>
+</div>
+<form method="post" id="movieID" action="{% url 'MovieLensMovie' %}">
+  {% csrf_token %}
+  <p>Choice a movie you like:</p>
+  {% for val in movie %}
+  <input type="image" name="{{ val }}" alt="Submit" src="{% static 'MovieLens/movieimg/cover.jpg' %}">
+  {% endfor %}
+</form>
+<div class="postuser">
+  <button type="submit" form="movieID" value="Submit">how about the user</button>
+</div>
+{% endblock %}

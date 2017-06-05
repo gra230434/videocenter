@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <title>絕對低調 | {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'index/style.css' %}" />
+    <link rel="shortcut icon" href="{% static 'vcenter.ico' %}"/>
+  </head>
+  <body id="moviebody">
+    <div class="sitepage">
+      <header class="movieheader">
+        <h1>私人動漫天地</h1>
+        <div class="toright">
+          <div class="theptad">
+            <p>Welcome</p>
+            <div class="clear"></div>
+          </div>
+          <div id="navmenu">
+            <ul class="drop-down-menu">
+              {% block indexli %}{% endblock %}
+            </ul>
+          </div><!-- #navmenu -->
+        </div>
+        <div class="clear"></div>
+      </header>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

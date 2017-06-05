@@ -43,7 +43,7 @@ def anidetail(request, aniID):
                 'year': andetail.year,
                 'season': andetail.season,
                 'is_end': andetail.is_end,
-            }
+                }
             return render(request, 'vcenter/anidetail.html', context)
         except AnimateDetail.DoesNotExist:
             return HttpResponseRedirect('vcenter/animate/')
