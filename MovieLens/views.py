@@ -15,7 +15,7 @@ def MovieLens(request):
     context = {}
     movieID = random.sample(range(1, 131262), 10)
     context['movie'] = movieID
-    return render(request, 'MovieLens/user.html', context)
+    return render(request, 'MovieLens/index.html', context)
 
 
 @login_required
