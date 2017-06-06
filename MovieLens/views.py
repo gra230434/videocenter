@@ -17,7 +17,7 @@ def MovieLens(request):
     context = {'movie': []}
     IDList = random.sample(range(1, 27278), 10)
     for ID in IDList:
-        movieObject = MovieLensMovie.objects.filter(pk=ID)
+        movieObject = MovieLensMovie.objects.get(pk=ID)
         movie = {
             'title': movieObject.GetTitle(),
             'movieId': movieObject.GetMovieId(),
