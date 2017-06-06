@@ -35,14 +35,11 @@
 function UserClick(userID) {
     var rooturl = "{% url 'MovieLens' %}user/";
     var url = rooturl.concat(movieID, "/");
-    console.log(url);
     window.location.assign(url);
 }
 function ImgClick(movieID) {
     var rooturl = "{% url 'MovieLens' %}movie/";
     var url = rooturl.concat(movieID, "/");
-    console.log(rooturl);
-    console.log(url);
     window.location.assign(url);
 }
 </script>
