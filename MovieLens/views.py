@@ -19,9 +19,9 @@ def MovieLens(request):
     for ID in IDList:
         movieObject = MovieLensMovie.objects.filter(pk=ID)
         movie = {
-            'title': movieObject.title,
-            'movieId': movieObject.movieId,
-            'genres': movieObject.genres
+            'title': movieObject.GetTitle(),
+            'movieId': movieObject.GetMovieId(),
+            'genres': movieObject.GetGenres()
             }
         context['movie'].append(movie)
     return render(request, 'MovieLens/index.html', context)
@@ -41,10 +41,6 @@ def MovieLensAUser(request, userID=None):
             context = {'movie': movieList}
             return render(request, 'MovieLens/user.html', context)
     else:
-        if request.method == 'POST':
-            if request.POST['userID'] is not None:
-                userID = request.POST['userID']
-                return redirect('MovieLensUser', userID)
         return redirect('MovieLens')
 
 
@@ -63,7 +59,4 @@ def MovieLensAMovie(request, movieID=None):
                 return render(request, 'MovieLens/user.html', context)
             pass
         else:
-            if request.method == 'POST':
-                if request.POST['userID'] is not None:
-                    userID = request.POST['userID']
-                    return redirect('MovieLensUser', userID)
+            return redirect('MovieLens')

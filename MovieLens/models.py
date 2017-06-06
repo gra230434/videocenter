@@ -9,3 +9,12 @@ class MovieLensMovie(models.Model):
 
     def __str__(self):
         return self.title
+
+    def GetTitle(self):
+        return self.title
+
+    def GetMovieId(self):
+        return self.movieId
+
+    def GetGenres(self):
+        return self.genres
