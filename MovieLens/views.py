@@ -35,6 +35,10 @@ def MovieLensAUser(request, userID=None):
         reURL = requests.get(urlwithID)
         if reURL.status_code == 200:
             movieJson = json.loads(reURL.text)
+            context = {
+                'movie': [],
+                'JSON': movieJson,
+                }
             for val in movieJson:
                 movie = MovieLensMovie.objects.get(movieId=val['movieID'])
                 moviedic = {
@@ -42,8 +46,14 @@ def MovieLensAUser(request, userID=None):
                     'movieId': movie.GetMovieId(),
                     'genres': movie.GetGenres()
                     }
-            context = {'movie': moviedic}
+                context['movie'].append(moviedic)
             return render(request, 'MovieLens/user.html', context)
+        else:
+            context = {
+                'movie': [],
+                'ERROR': "Get requests fail status_code:{}".format(
+                    reURL.status_code),
+                }
     else:
         return redirect('MovieLens')
 
@@ -56,6 +66,10 @@ def MovieLensAMovie(request, movieID=None):
             reURL = requests.get(urlwithID)
             if reURL.status_code == 200:
                 movieJson = json.loads(reURL.text)
+                context = {
+                    'movie': [],
+                    'JSON': movieJson,
+                    }
                 for val in movieJson:
                     movie = MovieLensMovie.objects.get(movieId=val['movieID'])
                     moviedic = {
@@ -63,8 +77,13 @@ def MovieLensAMovie(request, movieID=None):
                         'movieId': movie.GetMovieId(),
                         'genres': movie.GetGenres()
                         }
-                context = {'movie': moviedic}
+                    context['movie'].append(moviedic)
                 return render(request, 'MovieLens/movie.html', context)
-            pass
+            else:
+                context = {
+                    'movie': [],
+                    'ERROR': "Get requests fail status_code:{}".format(
+                        reURL.status_code),
+                    }
         else:
             return redirect('MovieLens')
