@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}Test animation{% endblock %}
+{% block title %}MovieLens{% endblock %}
 
 {% block indexli %}
 <li><a href="{% url 'vcenter_index' %}">影片</a></li>
@@ -14,21 +14,25 @@
 {% block content %}
 <form method="post" id="userID" action="{% url 'MovieLens' %}">
   {% csrf_token %}
-  <p>Quantity (between 1 and 138493):</p>
+  <p>Choice a User (between 1 and 138493):</p>
   <input type="number" name="quantity" min="1" max="138493">
 </form>
 <div class="postuser">
   <button type="submit" form="userID" value="Submit">how about the user</button>
 </div>
-<form method="post" id="movieID" action="{% url 'MovieLens' %}">
-  {% csrf_token %}
+<div id="ChoiceImage">
   <p>Choice a movie you like:</p>
   {% for val in movie %}
   <p>{{ val }}</p>
-  <input type="image" name="{{ val }}" alt="Submit" src="{% static 'MovieLens/movieimg/cover.jpg' %}">
+  <img src="{% static 'MovieLens/movieimg/cover.jpg' %}" alt="Submit" onclick=ImgClick("{% url 'MovieLensMovie' {{ val }} %}")>
   {% endfor %}
-</form>
-<div class="postuser">
-  <button type="submit" form="movieID" value="Submit">how about the user</button>
 </div>
+{% endblock %}
+
+{% block TheEndJS %}
+<script>
+function ImgClick(url) {
+    window.location.assign(url);
+}
+</script>
 {% endblock %}

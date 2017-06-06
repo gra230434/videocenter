@@ -6,6 +6,8 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 
+from .models import MovieLensMovie
+
 
 # Create your views here.
 @login_required
@@ -13,13 +15,14 @@ def MovieLens(request):
     # who u are
     # what movie u want to check
     context = {}
-    movieID = random.sample(range(1, 131262), 10)
+    IDList = random.sample(range(1, 27278), 10)
+    movieID = MovieLensMovie.objects.filter(pk__in=IDList)
     context['movie'] = movieID
     return render(request, 'MovieLens/index.html', context)
 
 
 @login_required
-def MovieLensUser(request, userID=None):
+def MovieLensAUser(request, userID=None):
     if userID is not None:
         url = "http://140.113.207.198:3000/action"
         urlwithID = "{0}?userID={1}".format(url, userID)
@@ -40,7 +43,7 @@ def MovieLensUser(request, userID=None):
 
 
 @login_required
-def MovieLensMovie(request, movieID=None):
+def MovieLensAMovie(request, movieID=None):
         if movieID is not None:
             url = "http://140.113.207.198:3000/action"
             urlwithID = "{0}?movieID={1}".format(url, movieID)
