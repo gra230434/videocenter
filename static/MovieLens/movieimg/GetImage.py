@@ -29,6 +29,7 @@ def Sourec_ReadCSV(sourcepath):
 def main():
     source = os.path.join(path, 'links0.csv')
     movieIdL, imdbIdL = Sourec_ReadCSV(source)
+    error = []
     for val in tqdm(range(len(movieIdL))):
         try:
             url = 'http://www.imdb.com/title/tt{}/'.format(imdbIdL[val])
@@ -41,7 +42,11 @@ def main():
             ssl._create_default_https_context = ssl._create_unverified_context
             urlretrieve(getURL[0]['content'], '{}.jpg'.format(movieIdL[val]))
         except Exception as e:
-            print("movieID:{} IMDB:{}".format(movieIdL[val], imdbIdL[val]))
+            error.append(
+                "movieID:{} IMDB:{}".format(movieIdL[val], imdbIdL[val])
+                )
+    for msg in error:
+        print(msg)
 
 
 if __name__ == '__main__':
