@@ -8,4 +8,4 @@ class MovieLensMovie(models.Model):
     genres = models.CharField(max_length=256)
 
     def __str__(self):
-        return self.animate
+        return self.title
