@@ -23,8 +23,9 @@
 <div id="ChoiceImage">
   <p>Choice a movie you like:</p>
   {% for val in movie %}
-  <p>{{ val }}</p>
-  <img src="{% static 'MovieLens/movieimg/cover.jpg' %}" alt="Submit" onclick=ImgClick("{% url 'MovieLens' %}movie/{{ val }}")>
+  <p>{{ val.title }}</p>
+  <img src="{% static 'MovieLens/movieimg/cover.jpg' %}" alt="Submit" onclick=ImgClick("{% url 'MovieLens' %}movie/{{ val.movieId }}/")>
+  <p>{{ val.genres }}</p>
   {% endfor %}
 </div>
 {% endblock %}

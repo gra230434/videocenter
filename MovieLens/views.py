@@ -14,10 +14,16 @@ from .models import MovieLensMovie
 def MovieLens(request):
     # who u are
     # what movie u want to check
-    context = {}
+    context = {'movie': []}
     IDList = random.sample(range(1, 27278), 10)
-    movieID = MovieLensMovie.objects.filter(pk__in=IDList)
-    context['movie'] = movieID
+    for ID in IDList:
+        movieObject = MovieLensMovie.objects.filter(pk=ID)
+        movie = {
+            'title': movieObject.title,
+            'movieId': movieObject.movieId,
+            'genres': movieObject.genres
+            }
+        context['movie'].append(movie)
     return render(request, 'MovieLens/index.html', context)
 
 
