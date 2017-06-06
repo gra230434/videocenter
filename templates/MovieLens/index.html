@@ -33,13 +33,13 @@
 {% block TheEndJS %}
 <script>
 function UserClick(userID) {
-    var rooturl = "{{ request.get_host }}{% url 'MovieLens' %}user/";
+    var rooturl = "{{ request.get_host }}user/";
     var url = rooturl.concat(movieID, "/");
     console.log(url);
     window.location.assign(url);
 }
 function ImgClick(movieID) {
-    var rooturl = "{{ request.get_host }}{% url 'MovieLens' %}movie/";
+    var rooturl = "{{ request.get_host }}movie/";
     var url = rooturl.concat(movieID, "/");
     console.log(url);
     window.location.assign(url);
