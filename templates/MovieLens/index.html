@@ -24,7 +24,7 @@
   <p>Choice a movie you like:</p>
   {% for val in movie %}
   <p>{{ val.title }}</p>
-  <img src="{% static 'MovieLens/movieimg/cover.jpg' %}" alt="Submit" onclick=ImgClick("{% url 'MovieLens' %}movie/{{ val.movieId }}/")>
+  <img src="{% static 'MovieLens/movieimg/cover.jpg' %}" alt="Submit" onclick=ImgClick("{{ val.movieId }}")>
   <p>{{ val.genres }}</p>
   {% endfor %}
 </div>
@@ -32,7 +32,16 @@
 
 {% block TheEndJS %}
 <script>
-function ImgClick(url) {
+function UserClick(userID) {
+    var rooturl = "{{ request.get_host }}{% url 'MovieLens' %}user/";
+    var url = rooturl.concat(movieID, "/");
+    console.log(url);
+    window.location.assign(url);
+}
+function ImgClick(movieID) {
+    var rooturl = "{{ request.get_host }}{% url 'MovieLens' %}movie/";
+    var url = rooturl.concat(movieID, "/");
+    console.log(url);
     window.location.assign(url);
 }
 </script>

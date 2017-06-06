@@ -35,10 +35,14 @@ def MovieLensAUser(request, userID=None):
         reURL = requests.get(urlwithID)
         if reURL.status_code == 200:
             movieJson = json.loads(reURL.text)
-            movieList = []
             for val in movieJson:
-                movieList.append(val['movieID'])
-            context = {'movie': movieList}
+                movie = MovieLensMovie.objects.get(movieId=val['movieID'])
+                moviedic = {
+                    'title': movie.GetTitle(),
+                    'movieId': movie.GetMovieId(),
+                    'genres': movie.GetGenres()
+                    }
+            context = {'movie': moviedic}
             return render(request, 'MovieLens/user.html', context)
     else:
         return redirect('MovieLens')
@@ -52,11 +56,15 @@ def MovieLensAMovie(request, movieID=None):
             reURL = requests.get(urlwithID)
             if reURL.status_code == 200:
                 movieJson = json.loads(reURL.text)
-                movieList = []
                 for val in movieJson:
-                    movieList.append(val['movieID'])
-                context = {'movie': movieList}
-                return render(request, 'MovieLens/user.html', context)
+                    movie = MovieLensMovie.objects.get(movieId=val['movieID'])
+                    moviedic = {
+                        'title': movie.GetTitle(),
+                        'movieId': movie.GetMovieId(),
+                        'genres': movie.GetGenres()
+                        }
+                context = {'movie': moviedic}
+                return render(request, 'MovieLens/movie.html', context)
             pass
         else:
             return redirect('MovieLens')

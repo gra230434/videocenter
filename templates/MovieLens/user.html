@@ -1,0 +1,25 @@
+{% extends "MovieLens/base.html" %}
+
+{% load static %}
+
+{% block title %}MovieLens{% endblock %}
+
+{% block indexli %}
+<li><a href="{% url 'vcenter_index' %}">影片</a></li>
+<li><a class="active" href="{% url 'MovieLens' %}">影片推薦</a></li>
+<li><a href="{% url 'account_index' %}">個人設定</a></li>
+<li><a href="{% url 'SingOut' %}">登出</a></li>
+{% endblock %}
+
+{% block content %}
+<div id="ChoiceImage">
+  <p>The User maybe like</p>
+  {% for val in movie %}
+  <p>{{ val.title }}</p>
+  <img src="{% static 'MovieLens/movieimg/cover.jpg' %}">
+  <p>{{ val.genres }}</p>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block TheEndJS %}{% endblock %}
