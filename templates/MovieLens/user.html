@@ -17,7 +17,7 @@
   <h2>我們對{{ USER }}這位使用者的推薦如下</h2>
   {% for val in movie %}
   <div>
-    <img src="{% static 'MovieLens/movieimg' %}/{{ val.movieId }}" onerror="this.src='{% static 'MovieLens/movieimg/cover.jpg' %}'">
+    <img src="{% static 'MovieLens/movieimg' %}/{{ val.movieId }}.jpg" onerror="this.src='{% static 'MovieLens/movieimg/cover.jpg' %}'" width="300px">
     <h3>{{ val.title }}</h3>
     <p>{{ val.genres }}</p>
   </div>
