@@ -14,11 +14,13 @@
 {% block content %}
 <p>{{ JSON }}</p>
 <div id="ChoiceImage">
-  <p>The User maybe like</p>
+  <h2>我們對{{ USER }}這位使用者的推薦如下</h2>
   {% for val in movie %}
-  <p>{{ val.title }}</p>
-  <img src="{% static 'MovieLens/movieimg/cover.jpg' %}">
-  <p>{{ val.genres }}</p>
+  <div>
+    <img src="{% static 'MovieLens/movieimg' %}/{{ val.movieId }}" onerror="this.src='{% static 'MovieLens/movieimg/cover.jpg' %}'">
+    <h3>{{ val.title }}</h3>
+    <p>{{ val.genres }}</p>
+  </div>
   {% endfor %}
 </div>
 {% endblock %}

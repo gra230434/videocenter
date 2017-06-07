@@ -38,6 +38,7 @@ def MovieLensAUser(request, userID=None):
             context = {
                 'movie': [],
                 'JSON': movieJson,
+                'USER': userID,
                 }
             for val in movieJson:
                 movie = MovieLensMovie.objects.get(movieId=val['movieID'])
@@ -66,8 +67,15 @@ def MovieLensAMovie(request, movieID=None):
             reURL = requests.get(urlwithID)
             if reURL.status_code == 200:
                 movieJson = json.loads(reURL.text)
+                movie = MovieLensMovie.objects.get(movieId=movieID)
+                thismoviedic = {
+                    'title': movie.GetTitle(),
+                    'movieId': movie.GetMovieId(),
+                    'genres': movie.GetGenres()
+                    }
                 context = {
                     'movie': [],
+                    'thismovie': thismoviedic,
                     'JSON': movieJson,
                     }
                 for val in movieJson:
