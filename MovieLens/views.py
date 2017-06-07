@@ -78,7 +78,7 @@ def MovieLensAMovie(request, movieID=None):
                     'thismovie': thismoviedic,
                     'JSON': movieJson,
                     }
-                for val in movieJson:
+                for val in movieJson[1:]:
                     movie = MovieLensMovie.objects.get(movieId=val['movieID'])
                     moviedic = {
                         'title': movie.GetTitle(),
