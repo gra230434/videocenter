@@ -30,7 +30,7 @@ def main():
     source = os.path.join(path, 'links.csv')
     movieIdL, imdbIdL = Sourec_ReadCSV(source)
     error = []
-    for val in tqdm(range(14999, 21000)):
+    for val in tqdm(range(20999, len(movieIdL))):
         filename = '{}.jpg'.format(movieIdL[val])
         if not os.path.isfile(os.path.join(path, filename)):
             url = 'http://www.imdb.com/title/tt{}/'.format(imdbIdL[val])
