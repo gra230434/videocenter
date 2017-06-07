@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block content %}
+<div>
 <form method="post" id="userID" action="{% url 'MovieLens' %}">
   {% csrf_token %}
   <p>Choice a User (between 1 and 138493):</p>
@@ -20,12 +21,15 @@
 <div class="postuser">
   <button type="submit" form="userID" value="Submit">how about the user</button>
 </div>
+</div>
 <div id="ChoiceImage">
-  <p>Choice a movie you like:</p>
+  <h2>Choice a movie you like:</h2>
   {% for val in movie %}
-  <p>{{ val.title }}</p>
-  <img src="{% static 'MovieLens/movieimg/cover.jpg' %}" alt="Submit" onclick=ImgClick("{{ val.movieId }}")>
-  <p>{{ val.genres }}</p>
+  <div>
+    <img src="{% static 'MovieLens/movieimg' %}/{{ val.movieId }}" onerror="this.src='{% static 'MovieLens/movieimg/cover.jpg' %}'" alt="Submit" onclick=ImgClick("{{ val.movieId }}")>
+    <h3>{{ val.title }}</h3>
+    <p>{{ val.genres }}</p>
+  </div>
   {% endfor %}
 </div>
 {% endblock %}
