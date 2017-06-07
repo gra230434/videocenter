@@ -26,7 +26,7 @@
   <h2>Choice a movie you like:</h2>
   {% for val in movie %}
   <div>
-    <img src="{% static 'MovieLens/movieimg' %}/{{ val.movieId }}" onerror="this.src='{% static 'MovieLens/movieimg/cover.jpg' %}'" alt="Submit" onclick=ImgClick("{{ val.movieId }}")>
+    <img src="{% static 'MovieLens/movieimg' %}/{{ val.movieId }}.jpg" onerror="this.src='{% static 'MovieLens/movieimg/cover.jpg' %}'" alt="Submit" onclick=ImgClick("{{ val.movieId }}")>
     <h3>{{ val.title }}</h3>
     <p>{{ val.genres }}</p>
   </div>
