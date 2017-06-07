@@ -30,21 +30,23 @@ def main():
     source = os.path.join(path, 'links.csv')
     movieIdL, imdbIdL = Sourec_ReadCSV(source)
     error = []
-    for val in tqdm(range(len(movieIdL))):
-        try:
+    for val in tqdm(range(len(movieIdL), 18999, -1)):
+        filename = '{}.jpg'.format(movieIdL[val])
+        if os.path.isfile(os.path.join(path, filename)):
             url = 'http://www.imdb.com/title/tt{}/'.format(imdbIdL[val])
-            soup = BeautifulSoup(urlopen(url), 'html.parser')
-            getURL = soup.findAll('div', {'class': 'poster'})
-            IMDB = getURL[0].find_all('a', href=True)
-            bigImageURL = "{0}{1}".format(rooturl, IMDB[0]['href'])
-            soup = BeautifulSoup(urlopen(bigImageURL), 'html.parser')
-            getURL = soup.findAll('meta', {'itemprop': 'image'})
-            ssl._create_default_https_context = ssl._create_unverified_context
-            urlretrieve(getURL[0]['content'], '{}.jpg'.format(movieIdL[val]))
-        except Exception as e:
-            error.append(
-                "movieID:{} IMDB:{}".format(movieIdL[val], imdbIdL[val])
-                )
+            try:
+                soup = BeautifulSoup(urlopen(url), 'html.parser')
+                getURL = soup.findAll('div', {'class': 'poster'})
+                IMDB = getURL[0].find_all('a', href=True)
+                bigImageURL = "{0}{1}".format(rooturl, IMDB[0]['href'])
+                soup = BeautifulSoup(urlopen(bigImageURL), 'html.parser')
+                getURL = soup.findAll('meta', {'itemprop': 'image'})
+                ssl._create_default_https_context = ssl._create_unverified_context
+                urlretrieve(getURL[0]['content'], filename)
+            except Exception as e:
+                error.append(
+                    "movieID:{} IMDB:{}".format(movieIdL[val], imdbIdL[val])
+                    )
     for msg in error:
         print(msg)
 
