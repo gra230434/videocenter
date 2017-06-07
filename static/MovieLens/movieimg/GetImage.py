@@ -27,7 +27,7 @@ def Sourec_ReadCSV(sourcepath):
 
 
 def main():
-    source = os.path.join(path, 'links0.csv')
+    source = os.path.join(path, 'links.csv')
     movieIdL, imdbIdL = Sourec_ReadCSV(source)
     error = []
     for val in tqdm(range(len(movieIdL))):
