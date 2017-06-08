@@ -24,9 +24,9 @@
     <div style="float: left;">
       <h3>{{ thismovie.title }}</h3>
       <p>{{ thismovie.genres }}</p>
-      <a href="http://www.imdb.com/title/tt{{ thismovie.movieId }}/" target="_blank"><p>to IMDB</p></a>
     </div>
   </div>
+  <div style="clear:both"></div>
   <h2>也許你會喜歡這些影片，因為這些影片跟你選的影片類似</h2>
   {% if error %}
       {{ error }}
