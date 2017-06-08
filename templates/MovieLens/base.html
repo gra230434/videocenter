@@ -25,7 +25,7 @@
         <h1>電影關聯性</h1>
         <div class="toright">
           <div class="theptad">
-            <p>Welcome</p>
+            <p>Welcome{% block user %}{% endblock %}</p>
             <div class="clear"></div>
           </div>
           <div id="navmenu">
@@ -38,6 +38,9 @@
       </header>
       {% block content %}{% endblock %}
     </div>
+    <footer>
+      Power by Django. Create by <a href="https://blog.technologyofkevin.com/">Kevin.Wei</a>
+    </footer>
     {% block TheEndJS %}{% endblock %}
   </body>
 </html>

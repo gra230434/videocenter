@@ -4,6 +4,8 @@
 
 {% block title %}MovieLens{% endblock %}
 
+{% block user %}{{ username }}{% endblock %}
+
 {% block indexli %}
 <li><a href="{% url 'vcenter_index' %}">影片</a></li>
 <li><a class="active" href="{% url 'MovieLens' %}">影片推薦</a></li>
