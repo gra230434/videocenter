@@ -22,8 +22,8 @@
   </div>
   <h2>也許你會喜歡這些影片，因為這些影片跟你選的影片類似</h2>
   {% for val in movie %}
-  <div style="width: 280px;float: left;padding: 5px;margin: 5px;background-color: white;">
-    <img src="{% static 'MovieLens/movieimg' %}/{{ val.movieId }}.jpg" onerror="this.src='{% static 'MovieLens/movieimg/cover.jpg' %}'" width="270px">
+  <div style="width: 280px;float: left;padding: 5px;margin: 5px;background-color: white;height: 560px;">
+    <img src="{% static 'MovieLens/movieimg' %}/{{ val.movieId }}.jpg" onerror="this.src='{% static 'MovieLens/movieimg/cover.jpg' %}'" width="280px">
     <h3>{{ val.title }}</h3>
     <p>{{ val.genres }}</p>
   </div>
