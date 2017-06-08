@@ -15,7 +15,7 @@
         <h1>絕對低調</h1>
         <div class="toright">
           <div class="theptad">
-            <p>Welcome{% block user %}{% endblock %}</p>
+            <p>Welcome {% block user %}{% endblock %}</p>
             <div class="clear"></div>
           </div>
           <div id="navmenu">
@@ -28,5 +28,9 @@
       </header>
       {% block content %}{% endblock %}
     </div>
+    <div style="clear:both"></div>
+    <footer>
+      Power by Django. Create by <a href="https://blog.technologyofkevin.com/">Kevin.Wei</a>
+    </footer>
   </body>
 </html>
