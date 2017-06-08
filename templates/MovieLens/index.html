@@ -17,7 +17,7 @@
 <div>
 <form method="post" id="userID" action="{% url 'MovieLens' %}">
   {% csrf_token %}
-  <p>Choice a User (between 1 and 138493):</p>
+  <h2>Choice a User (between 1 and 138493):</h2>
   <input type="number" name="quantity" min="1" max="138493">
 </form>
 <div class="postuser">
