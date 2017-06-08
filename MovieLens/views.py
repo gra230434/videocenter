@@ -42,6 +42,8 @@ def MovieLensAUser(request, userID=None):
                 'JSON': movieJson,
                 'USER': userID,
                 }
+            if movieJson['error'] is not None:
+                context['error'] = movieJson['error']
             for val in movieJson:
                 movie = MovieLensMovie.objects.get(movieId=val['movieID'])
                 moviedic = {

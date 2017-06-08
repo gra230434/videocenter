@@ -18,11 +18,19 @@
 
 <div id="ChoiceImage">
   <div>
-    <img src="{% static 'MovieLens/movieimg' %}/{{ thismovie.movieId }}.jpg" onerror="this.src='{% static 'MovieLens/movieimg/cover.jpg' %}'" width="300px">
-    <h3>{{ thismovie.title }}</h3>
-    <p>{{ thismovie.genres }}</p>
+    <div style="float: left;">
+      <img src="{% static 'MovieLens/movieimg' %}/{{ thismovie.movieId }}.jpg" onerror="this.src='{% static 'MovieLens/movieimg/cover.jpg' %}'" width="300px">
+    </div>
+    <div style="float: left;">
+      <h3>{{ thismovie.title }}</h3>
+      <p>{{ thismovie.genres }}</p>
+      <a href="http://www.imdb.com/title/tt{{ thismovie.movieId }}/" target="_blank"><p>to IMDB</p></a>
+    </div>
   </div>
   <h2>也許你會喜歡這些影片，因為這些影片跟你選的影片類似</h2>
+  {% if error %}
+      {{ error }}
+  {% endif %}
   {% for val in movie %}
   <div style="width: 280px;float: left;padding: 5px;margin: 5px;background-color: white;height: 560px;overflow: hidden;">
     <img src="{% static 'MovieLens/movieimg' %}/{{ val.movieId }}.jpg" onerror="this.src='{% static 'MovieLens/movieimg/cover.jpg' %}'" onclick=ImgClick("{{ val.movieId }}") width="280px">
