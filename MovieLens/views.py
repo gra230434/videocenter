@@ -42,7 +42,7 @@ def MovieLensAUser(request, userID=None):
                 'JSON': movieJson,
                 'USER': userID,
                 }
-            if 'error' in movieJson.keys():
+            if 'error' in movieJson:
                 context['error'] = movieJson['error']
             for val in movieJson:
                 movie = MovieLensMovie.objects.get(movieId=val['movieID'])
@@ -82,7 +82,7 @@ def MovieLensAMovie(request, movieID=None):
                     'thismovie': thismoviedic,
                     'JSON': movieJson,
                     }
-                if 'error' in movieJson.keys():
+                if 'error' in movieJson:
                     context['error'] = movieJson['error']
                 for val in movieJson[1:]:
                     movie = MovieLensMovie.objects.get(movieId=val['movieID'])
