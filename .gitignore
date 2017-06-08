@@ -16,6 +16,7 @@ settings.py
 
 # image
 *.jpg
+*.gif
 
 # C extensions
 *.so

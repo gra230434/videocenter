@@ -13,6 +13,8 @@ from .models import MovieLensMovie
 @login_required
 def MovieLens(request):
     # who u are
+    if request.method == 'POST':
+        return redirect('MovieLensUser', request.POST['quantity'])
     # what movie u want to check
     context = {'movie': []}
     IDList = random.sample(range(1, 27278), 10)
