@@ -9,11 +9,18 @@ def AnimatePath(instance):
 class Animate(models.Model):
     animate = models.CharField(max_length=256)
     animateEN = models.CharField(max_length=256)
-    Image = models.ImageField(upload_to=AnimatePath)
     update = models.DateField(auto_now=True)
 
     def __str__(self):
         return self.animate
+
+    def animateDict(self):
+        reDict = {
+            'name': self.animate,
+            'nameEN': self.animateEN,
+            'update': self.update
+            }
+        return reDict
 
 
 class AnimateDetail(models.Model):

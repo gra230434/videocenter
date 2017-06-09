@@ -21,15 +21,17 @@
 {% block content %}
 <div class="masterbar">
   <div id="videopart" class="videopart">
-    <div style="height:76px">
-      <h2 id="animationtitle" style="float:left;">Test video</h2>
+    {% if error %}
+        {{ error }}
+    {% endif %}
+    {% for val in animate %}
+    <div style="width: 280px;float: left;padding: 5px;margin: 5px;background-color: white;height: 560px;overflow: hidden;">
+      <img src="{% get_media_prefix %}/{{ val.nameEN }}/cover.jpg" onerror="this.src='{% static 'vcenter/images/cover.jpg' %}'" onclick=ImgClick("{{ val.movieId }}") width="280px">
+      <h3>{{ val.name }}</h3>
+      <p>{{ val.update }}</p>
     </div>
-    <div id="videoplayer" style="width: 100%;">
-      <video id="animationvideo" controls  width="100%" height="100%">
-        <source id="animationvideo_source" src="{% static 'vcenter/video/big_buck_bunny.mp4' %}" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div><!-- #videoplayer -->
+    {% endfor %}
+
   </div><!-- #videopart -->
 </div><!-- .masterbar -->
 {% endblock %}

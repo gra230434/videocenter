@@ -6,20 +6,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
-    <script>
-	    //paste this code under head tag or in a seperate js file.
-    	// Wait for window load
-    	$(window).load(function() {
-	  	// Animate loader off screen
-	  	$(".se-pre-con").fadeOut("slow");
-	  });
-    </script>
     <title>絕對低調 | {% block title %}{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'index/style.css' %}" />
     <link rel="shortcut icon" href="{% static 'vcenter.ico' %}"/>
   </head>
   <body id="moviebody">
-    <div class="se-pre-con"></div>
+    <div class="se-pre-con" style="display: none;"></div>
     <div class="sitepage">
       <header class="movieheader">
         <h1>電影關聯性</h1>

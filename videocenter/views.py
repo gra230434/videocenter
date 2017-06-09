@@ -27,7 +27,19 @@ def index(request):
 
 @login_required
 def animate(request):
-    pass
+    context = {'animate': []}
+    if request.user.get_short_name() is not None:
+        context['username'] = request.user.get_short_name()
+    else:
+        context['username'] = request.user.get_username()
+    try:
+        AniList = AnimateDetail.objects.order_by('update')[0:1].get()
+        for val in AniList:
+            context['animate'].append(val.animateDict())
+        return render(request, 'vcenter/animate.html', context)
+    except:
+        context['error'] = "Please contact me."
+    return render(request, 'vcenter/animate.html', context)
 
 
 @login_required
