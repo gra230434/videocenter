@@ -32,6 +32,7 @@
 function ImgClick(movieID) {
     var rooturl = "{% url 'MovieLens' %}movie/";
     var url = rooturl.concat(movieID, "/");
+    $(".se-pre-con").fadeIn();
     window.location.assign(url);
 }
 </script>
