@@ -8,6 +8,7 @@
     <title>絕對低調 | {% block title %}{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'index/style.css' %}" />
     <link rel="shortcut icon" href="{% static 'vcenter.ico' %}"/>
+    {% block TheHeadJS %}{% endblock %}
   </head>
   <body id="moviebody">
     <div class="sitepage">
@@ -32,5 +33,6 @@
         Power by Django. Create by <a href="https://blog.technologyofkevin.com/">Kevin.Wei</a>
       </footer>
     </div>
+    {% block TheEndJS %}{% endblock %}
   </body>
 </html>

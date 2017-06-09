@@ -20,11 +20,21 @@
       <h2 id="animationtitle" style="float:left;">Test video</h2>
       <h2 id="animationnum" style="float:left;margin-left:15px;"></h2>
     </div>
-    <video id="animationvideo" controls  width="1280" height="720">
+    <div id="videoplayer" style="">
+    <video id="animationvideo" controls  width="100%" height="100%">
       <source id="animationvideo_source" src="{% static 'vcenter/video/big_buck_bunny.mp4' %}" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <div id="videolist"></div>
   </div><!-- #videopart -->
 </div><!-- .masterbar -->
+{% endblock %}
+
+{% block TheEndJS %}
+<script>
+  $(document).ready(function(){
+    var videoplayerwidth = $( "#videoplayer" ).width();
+    $( "#videoplayer" ).css( "height", videoplayerwidth*9/16 );
+  });
+</script>
 {% endblock %}

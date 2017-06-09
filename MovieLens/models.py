@@ -18,3 +18,11 @@ class MovieLensMovie(models.Model):
 
     def GetGenres(self):
         return self.genres
+
+    def GetAllMovieInfo(self):
+        redict = {
+            'title': self.title,
+            'movieId': self.movieId,
+            'genres': self.genres
+            }
+        return redict

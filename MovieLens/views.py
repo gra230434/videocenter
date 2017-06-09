@@ -32,16 +32,20 @@ def MovieLens(request):
 @login_required
 def MovieLensAUser(request, userID=None):
     if userID is not None:
+        context = {
+            'movie': [],
+            'USER': userID,
+            }
+        if request.user.get_short_name() is not None:
+            context['username'] = request.user.get_short_name()
+        else:
+            context['username'] = request.user.get_username()
         url = "http://140.113.207.198:3000/action"
         urlwithID = "{0}?userID={1}".format(url, userID)
         reURL = requests.get(urlwithID)
         if reURL.status_code == 200:
             movieJson = json.loads(reURL.text)
-            context = {
-                'movie': [],
-                'JSON': movieJson,
-                'USER': userID,
-                }
+            context['JSON'] = movieJson
             if 'error' in movieJson:
                 context['error'] = movieJson['error']
             for val in movieJson:
@@ -66,22 +70,21 @@ def MovieLensAUser(request, userID=None):
 @login_required
 def MovieLensAMovie(request, movieID=None):
         if movieID is not None:
+            movie = MovieLensMovie.objects.get(movieId=movieID)
+            context = {
+                'movie': [],
+                'thismovie': movie.GetAllMovieInfo(),
+                }
+            if request.user.get_short_name() is not None:
+                context['username'] = request.user.get_short_name()
+            else:
+                context['username'] = request.user.get_username()
             url = "http://140.113.207.198:3000/action"
             urlwithID = "{0}?movieID={1}".format(url, movieID)
             reURL = requests.get(urlwithID)
             if reURL.status_code == 200:
                 movieJson = json.loads(reURL.text)
-                movie = MovieLensMovie.objects.get(movieId=movieID)
-                thismoviedic = {
-                    'title': movie.GetTitle(),
-                    'movieId': movie.GetMovieId(),
-                    'genres': movie.GetGenres()
-                    }
-                context = {
-                    'movie': [],
-                    'thismovie': thismoviedic,
-                    'JSON': movieJson,
-                    }
+                context['JSON'] = movieJson
                 if 'error' in movieJson:
                     context['error'] = movieJson['error']
                 for val in movieJson[1:]:
