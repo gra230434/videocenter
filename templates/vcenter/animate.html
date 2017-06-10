@@ -6,10 +6,11 @@
 
 {% block indexli %}
 <li><a href="{% url 'vcenter_index' %}">影片</a></li>
-<li><a class="active" href="{% url 'vcenter_ani' %}">動漫</a>
-  <ul>
-    <li><a class="active" href="{% url 'VC_edit_ani' %}">開新動畫</a></li>
-  </ul>
+<li class="dropdown">
+  <a  class="dropbtn active" href="{% url 'vcenter_ani' %}">動漫</a>
+  <div class="dropdown-content">
+    <li><a href="{% url 'VC_edit_ani'%}">開新動畫</a></li>
+  </div>
 </li>
 <li><a href="{% url 'MovieLens' %}">影片推薦</a></li>
 <li><a href="{% url 'account_index' %}">個人設定</a></li>
