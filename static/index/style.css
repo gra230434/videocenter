@@ -377,6 +377,10 @@ optgroup {
     display: inline-block;
 }
 
+.active {
+	background-color: green;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
