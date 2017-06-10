@@ -350,34 +350,30 @@ optgroup {
 }
 
 #navmenu ul {
-	list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
 }
 
-#navmenu li {
-  float: left;
+#navmenu ul li {
+    float: left;
 }
 
-#navmenu li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+#navmenu ul li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-#navmenu li a:hover:not(.active), .dropdown:hover .dropbtn {
-  background-color: #111;
+#navmenu ul li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
 }
 
-#navmenu .active {
-  background-color: #4CAF50;
-}
-
-li.dropdown {
+#navmenu ul li.dropdown {
     display: inline-block;
 }
 
