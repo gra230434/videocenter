@@ -14,7 +14,7 @@
 </li>
 <li><a href="{% url 'MovieLens' %}">影片推薦</a></li>
 <li><a href="{% url 'account_index' %}">個人設定</a></li>
-<li class="logoutbutton"><a href="{% url 'SingOut' %}">登出</a></li>
+<li style="float:right;"><a href="{% url 'SingOut' %}">登出</a></li>
 {% endblock %}
 
 {% block user %}{{ username }}{% endblock %}
