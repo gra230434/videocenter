@@ -4,9 +4,15 @@
 
 {% block indexli %}
 <li><a href="{% url 'vcenter_index' %}">影片</a></li>
+<li class="dropdown">
+  <a href="{% url 'vcenter_ani' %}" class="dropbtn">動漫</a>
+  <div class="dropdown-content">
+    <a href="{% url 'VC_edit_ani'%}">開新動畫</a>
+  </div>
+</li>
 <li><a href="{% url 'MovieLens' %}">影片推薦</a></li>
 <li><a class="active" href="{% url 'account_index' %}">個人設定</a></li>
-<li><a href="{% url 'SingOut' %}">登出</a></li>
+<li class="logoutbutton"><a href="{% url 'SingOut' %}">登出</a></li>
 {% endblock %}
 
 {% block content %}
