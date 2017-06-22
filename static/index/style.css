@@ -369,11 +369,11 @@ optgroup {
     text-decoration: none;
 }
 
-#navmenu ul li a:hover, .dropdown:hover .dropbtn {
+#navmenu ul li a:hover, .VC_dropdown:hover .dropbtn {
 	background-color: #4d5eda;
 }
 
-#navmenu ul li.dropdown {
+#navmenu ul li.VC_dropdown {
     display: inline-block;
 }
 
@@ -400,7 +400,7 @@ optgroup {
 	background-color: #f1f1f1;
 }
 
-.dropdown:hover .dropdown-content {
+.VC_dropdown:hover .dropdown-content {
     display: block;
 }
 
